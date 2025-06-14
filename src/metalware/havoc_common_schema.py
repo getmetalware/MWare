@@ -301,7 +301,7 @@ class DeviceConfig:
         result["memory_layout"] = from_list(lambda x: to_class(Memory, x), self.memory_layout)
         return result
 
-
+# process
 class FileMetadata:
     hash: str
     is_elf: bool
