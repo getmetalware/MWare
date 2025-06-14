@@ -213,6 +213,13 @@ class HavocClient:
     if resp.text != 'OK':
       raise RuntimeError(f"Stop run failed: {resp.text}")
 
+  def get_runs(self, project_name: str) -> List[Tuple[int, RunSummary]]:
+    resp = self._make_request(
+      'GET',
+      f'/project/{project_name}/runs'
+    )
+    return [(run_id, RunSummary.from_dict(run)) for (run_id, run) in resp.json()]
+
   def get_run_status(self, project_name: str, run_id: int) -> RunSummary:
     resp = self._make_request(
       'GET',
