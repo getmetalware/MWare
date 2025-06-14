@@ -1,6 +1,6 @@
-# Metalware SDK
+# GetMetalware
 
-Python client SDK for interacting with Metalware [Havoc](https://www.metalware.com/product), a firmware fuzzing platform.
+Python client SDK for interacting with Metalware [Havoc](https://www.metalware.online/product), a firmware fuzzing platform.
 
 ![image](https://github.com/getmetalware/getmetalware/blob/main/project_diagram.2.0.9.svg)
 
