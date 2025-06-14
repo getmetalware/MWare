@@ -10,7 +10,7 @@ Python client SDK for interacting with Metalware [Havoc](https://www.metalware.o
 ### Using pip
 
 ```bash
-git clone https://github.com/metalware-inc/metalware-sdk.git
+git clone https://github.com/getmetalware/getmetalware.git
 cd metalware-sdk
 python3 -m venv venv
 . venv/bin/activate
