@@ -193,7 +193,7 @@ class HavocClient:
       raise RuntimeError(f"Project config setting failed: {result['Err']}")
     else: return result['Ok']
 
-  def start_run(self, project_name: str, config: RunConfig) -> None:
+  def start_run(self, project_name: str, config: RunConfig) -> int:
     resp = self._make_request(
       'POST',
       f'/project/{project_name}/start-run',
@@ -203,6 +203,15 @@ class HavocClient:
     result = resp.json()
     if isinstance(result, dict) and 'Err' in result:
       raise RuntimeError(f"Run start failed: {result['Err']}")
+    else: return result['Ok']
+
+  def get_run_status(self, project_name: str, run_id: int) -> RunStatus:
+    resp = self._make_request(
+      'GET',
+      f'/project/{project_name}/run/{run_id}/summary'
+    )
+    result = resp.json()
+    return RunSummary.from_dict(result).status
 
   def stop_run(self, project_name: str, run_id: int) -> None:
     resp = self._make_request(
@@ -219,14 +228,6 @@ class HavocClient:
       f'/project/{project_name}/runs'
     )
     return [(run_id, RunSummary.from_dict(run)) for (run_id, run) in resp.json()]
-
-  def get_run_status(self, project_name: str, run_id: int) -> RunSummary:
-    resp = self._make_request(
-      'GET',
-      f'/project/{project_name}/run/{run_id}/summary'
-    )
-    
-    return RunSummary.from_dict(resp.json())
 
   def get_run_stats(self, project_name: str, run_id: int) -> RunStats:
     resp = self._make_request(
