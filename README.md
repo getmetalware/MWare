@@ -10,7 +10,7 @@ Python client SDK for interacting with Metalware [Havoc](https://www.metalware.o
 ### Using pip
 
 ```bash
-git clone https://github.com/getmetalware/getmetalware.git
+git clone https://github.com/getmetalware/MWare.git
 cd metalware-sdk
 python3 -m venv venv
 . venv/bin/activate
@@ -22,6 +22,6 @@ pip install -e .
 Make sure to edit `HAVOC_ENDPOINT` to point to the endpoint of the Docker container.
 
 ```bash
-cd examples/raw_image_multi_rom
+cd example/raw_image_multi_rom
 python main.py
 ```
