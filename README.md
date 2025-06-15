@@ -11,7 +11,7 @@ Python client SDK for interacting with Metalware [Havoc](https://www.mware.ink/p
 
 ```bash
 git clone https://github.com/getmetalware/Mware.git
-cd metalware-sdk
+cd src
 python3 -m venv venv
 . venv/bin/activate
 pip install -e .
